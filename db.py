@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Mar 25 11:14:47 2019
+
+@author: user
+"""
+
+import sqlite3
+
+
+class DB:
+    def __init__(self):
+        conn = sqlite3.connect('cars.db', check_same_thread=False)
+        self.conn = conn
+
+    def get_connection(self):
+        return self.conn
+
+    def __del__(self):
+        self.conn.close()
